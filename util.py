@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 
 #This function fetches the dataset. It takes a string (csv_path) which can be a url or a path to the dataset.
 #It returns a pandas DataFrame of the data.
@@ -55,8 +54,9 @@ def transform_columns(df:pd.DataFrame, transformation_info:list[dict[str, any]])
     
     return df
 
-
-def validate_dataset(df:pd.DataFrame, func: any):
+#This function applies the validation rules as 'func' (see validate above as an example) to the provided dataframe 'df' and returns the true set that follow
+#all the validation rules as a dataframe, and the rejected set that have failed at least ONE rule as a dataframe
+def validate_dataset(df:pd.DataFrame, func: any) -> tuple[pd.DataFrame, pd.DataFrame]:
 
     #add a new column 'failed' for every row that is an array of strings of the validation rules the dataset has failed on. The function 'validate'
     #is applied to every row in the dataframe to determine whether the entry in the dataframe is valid or not.
@@ -72,4 +72,3 @@ def validate_dataset(df:pd.DataFrame, func: any):
     rejected_set = df.loc[~true_indices,["vin","failed"]]
 
     return true_set, rejected_set
-
