@@ -1,0 +1,21 @@
+True Data:
+
+                 vin       make     model    year          trim Condition
+1  1C4NJPFA8ED519678      Honda     Civic  2020.0         Sport      Used
+3  3C3CFFAR3DT571989       Audi        A4  2022.0           300       New
+5  JM1BM1U79E1108676  Chevrolet       300  2007.0           NaN      Used
+7  JTEBU5JR8A5024764    Hyundai  Santa Fe  2011.0  Trim-Package      Used
+8  2G4WS52J121278965       Cart       200  2021.0         Sport       New
+
+----------------
+
+
+Rejected Data:
+
+                  vin                                                 failed
+0   2T1FF28P81C438164                                            [validYear]
+2   YV4960DZ8A2080987                                             [hasModel]
+4   5FNYF4H5XFB054084                                            [validYear]
+6   5TDZA23C46S533612                                   [hasYear, validYear]
+9    5TDZA3EH4BS08656                                               [hasVin]
+10  2G4WS52J121278966  [hasMake, hasModel, hasYear, hasCondition, validYear]
